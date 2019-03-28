@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ang-mat-tut';
+  title = 'ang-material-tut';
 
 
   constructor(public auth: AuthService) {
