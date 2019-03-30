@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
+// import { AuthService } from './auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ang-material-tut';
+	title = 'ang-material-tut';
+	storedPosts = [];
 
-
-  constructor(public auth: AuthService) {
-    auth.handleAuthentication();
-  }
-
-
+	onPostAdded(post) {
+		this.storedPosts.push(post);
+	}
 }
