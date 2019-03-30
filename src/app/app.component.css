@@ -1,3 +1,8 @@
+main {
+	margin-top: 1rem;
+	width: 80%;
+	margin: auto;
+}
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   height: 100%;
 }
