@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Post } from './posts/post.model';
+// import { Post } from './posts/post.model';
 // import { AuthService } from './auth.service';
 
 @Component({
@@ -8,10 +8,12 @@ import { Post } from './posts/post.model';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	title = 'ang-material-tut';
-	storedPosts: Post[] = [];
+	// title = 'ang-material-tut';
+	// storedPosts: Post[] = [];
 
-	onPostAdded(post) {
-		this.storedPosts.push(post);
-	}
+	// onPostAdded(post) {
+	// 	this.storedPosts.push(post);
+	// }
+
+	
 }
