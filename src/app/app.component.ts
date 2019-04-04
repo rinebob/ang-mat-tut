@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from './posts/post.model';
 // import { AuthService } from './auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'ang-material-tut';
-	storedPosts = [];
+	storedPosts: Post[] = [];
 
 	onPostAdded(post) {
 		this.storedPosts.push(post);
