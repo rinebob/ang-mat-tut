@@ -1,38 +1,35 @@
 
 <mat-card>
-
-<mat-form-field>
-	<input matInput type="text" [(ngModel)]='enteredTitle'>
-</mat-form-field>
-<mat-form-field>
-	<textarea matInput rows="6" [(ngModel)]='enteredContent'></textarea>
-</mat-form-field>
-<button
-mat-raised-button
-color="primary"
-(click)="onAddPost()">Save Post</button>
+	<form (submit)="onAddPost(postForm)" #postForm="ngForm">
+	<mat-form-field>
+		<input
+		matInput
+		type="text"
+		name="title"
+		ngModel
+		#title="ngModel"
+		placeholder="Post Title"
+		required>
+	</mat-form-field>
+	<mat-error *ngIf="title.invalid">Please enter a post title!</mat-error>
+	<mat-form-field>
+		<textarea
+		matInput
+		rows="4"
+		name="content"
+		ngModel
+		placeholder="Post Content"
+		#content="ngModel"
+		required></textarea>
+	</mat-form-field>
+	<mat-error *ngIf="content.invalid">Please enter post content!</mat-error>
+	<button
+	mat-raised-button
+	color="primary"
+	type="submit">Save Post</button>
+	</form>
 </mat-card>
 
 
 
-
-<!-- Lec 16 - Adding Event Listeners -->
-<!-- <button (click)="onAddPost(postInput)">Save Post</button> -->
-
-<!-- Lec 17 - property binding Lec 18 Get user input-->
-<!-- <textarea rows="6" [value]="newPost" #postInput ></textarea> -->
-
-<!-- Lec 17 String interpolation - clicking button will display newPost -->
-<!-- <p>{{ newPost }}</p> -->
-
-<!-- Lec 18 - two-way binding-->
-<!-- <textarea rows="6" [(ngModel)]="enteredValue"></textarea> -->
-<!-- <button (click)="onAddPost()">Save Post</button> -->
-
-<!-- Lec 19 Ang Material.
-Adding <mat-form-field> <mat-card> tags and matInput decorators -->
-<!-- <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea> -->
-
-<!-- Adding mat-raised-button color="primary" decorator -->
-<!-- <button mat-raised-button color="primary" (click)="onAddPost()">Save Post</button> -->
 

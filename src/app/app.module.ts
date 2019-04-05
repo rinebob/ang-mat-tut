@@ -11,6 +11,8 @@ import { MatInputModule,
 // import {MaterialModule} from './material.module';
 // import {FlexLayoutModule} from '@angular/flex-layout';
 
+import {PostsService} from './posts/posts.service';
+
 // import {AppRouters} from './app.routes';
 // import {DataService} from './data/data.service';
 // import {AuthService} from './auth.service';
@@ -48,6 +50,8 @@ import { PostListComponent } from './posts/post-list/post-list.component'; // Le
 	// AppRouters,
 	// FlexLayoutModule,
 	],
+
+	providers: [PostsService],
 
 	entryComponents: [
 		// PostDialogComponent
