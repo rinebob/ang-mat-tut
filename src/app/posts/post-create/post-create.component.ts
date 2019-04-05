@@ -29,6 +29,7 @@ export class PostCreateComponent {
 		// event emitter removed
 
 		this.postsService.addPost(form.value.title, form.value.content);
+		form.resetForm();
 	}
 
 }
