@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Lec 15
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';	// Lec 18
+import { HttpClientModule } from '@angular/common/http'; // Lec 38
 import { MatInputModule,
 	MatCardModule,
 	MatButtonModule,
@@ -45,6 +46,7 @@ import { PostListComponent } from './posts/post-list/post-list.component'; // Le
 	MatButtonModule, // lec 19
 	MatToolbarModule, // lec 20
 	MatExpansionModule, // Lec 21
+	HttpClientModule, // Lec 38
 	// BrowserAnimationsModule,
 	// MaterialModule,
 	// AppRouters,
