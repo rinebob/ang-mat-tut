@@ -35,23 +35,32 @@ app.post("/api/posts", (req, res, next) => {
 		title: req.body.title,
 		content: req.body.content
 	});
-	post.save();
-
-	console.log("000 app.js app.post.  post = ", post);
-	res.status(201).json({
-		message: 'Post added sweet dude!'
+	post.save().then(createdPost => {
+		console.log('000 app.js post.save.  createdPost = ',createdPost);
+		res.status(201).json({
+			message: 'Post added sweet dude!',
+			postId: createdPost._id
+		});
 	});
 });
 
 app.get("/api/posts", (req, res, next) => {
 	Post.find().then(posts => {
-		console.log('app.js 200 Post.find.  posts = ',posts);
+		console.log('200 app.js Post.find.  posts = ',posts);
 		res.status(200).json({
 			message: 'Posts like totally fetched man',
 			posts: posts
 		});
 	});
 
+});
+
+app.delete("/api/posts/:id", (req, res, next) => {
+	console.log("300 app.js app.delete. req.params.id = ",req.params.id);
+	Post.deleteOne({_id: req.params.id}).then(result => {
+		console.log("302 app.js app.delete.  result = ",result);
+	});
+	res.status(200).json({message: 'app.js Psych!  Post deleted!'});
 });
 
 module.exports = app;
