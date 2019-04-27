@@ -22,6 +22,7 @@ import { AppComponent } from './app.component';	// Lec 15
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component'; // Lec 20
 import { PostListComponent } from './posts/post-list/post-list.component'; // Lec 21
+import { AppRoutingModule } from './app-routing.module'; // Lec 61
 // import { WelcomeComponent } from './welcome/welcome.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 // import { PostDialogComponent } from './post-dialog/post-dialog.component';
@@ -39,6 +40,7 @@ import { PostListComponent } from './posts/post-list/post-list.component'; // Le
 	],
 	imports: [
 	BrowserModule,
+	AppRoutingModule,	// Lec 61
 	FormsModule,
 	BrowserAnimationsModule,	// Lec 18
 	MatInputModule,	// Lec 19
