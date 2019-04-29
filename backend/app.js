@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const Post = require('./models/post');
+
+const postsRoutes = require("./routes/posts");
 
 
 dbURI = 'mongodb://localhost/ang-material-tut';
@@ -30,37 +31,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.post("/api/posts", (req, res, next) => {
-	const post = new Post({
-		title: req.body.title,
-		content: req.body.content
-	});
-	post.save().then(createdPost => {
-		console.log('000 app.js post.save.  createdPost = ',createdPost);
-		res.status(201).json({
-			message: 'Post added sweet dude!',
-			postId: createdPost._id
-		});
-	});
-});
-
-app.get("/api/posts", (req, res, next) => {
-	Post.find().then(posts => {
-		console.log('200 app.js Post.find.  posts = ',posts);
-		res.status(200).json({
-			message: 'Posts like totally fetched man',
-			posts: posts
-		});
-	});
-
-});
-
-app.delete("/api/posts/:id", (req, res, next) => {
-	console.log("300 app.js app.delete. req.params.id = ",req.params.id);
-	Post.deleteOne({_id: req.params.id}).then(result => {
-		console.log("302 app.js app.delete.  result = ",result);
-	});
-	res.status(200).json({message: 'app.js Psych!  Post deleted!'});
-});
+app.use("/api/posts", postsRoutes);
 
 module.exports = app;

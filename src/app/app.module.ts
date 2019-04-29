@@ -8,6 +8,7 @@ import { MatInputModule,
 	MatButtonModule,
 	MatToolbarModule,
 	MatExpansionModule,
+	MatProgressSpinnerModule,	// Lec 69
 	} from '@angular/material'; // Lec 19
 // import {MaterialModule} from './material.module';
 // import {FlexLayoutModule} from '@angular/flex-layout';
@@ -22,6 +23,7 @@ import { AppComponent } from './app.component';	// Lec 15
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component'; // Lec 20
 import { PostListComponent } from './posts/post-list/post-list.component'; // Lec 21
+import { AppRoutingModule } from './app-routing.module'; // Lec 61
 // import { WelcomeComponent } from './welcome/welcome.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 // import { PostDialogComponent } from './post-dialog/post-dialog.component';
@@ -39,6 +41,7 @@ import { PostListComponent } from './posts/post-list/post-list.component'; // Le
 	],
 	imports: [
 	BrowserModule,
+	AppRoutingModule,	// Lec 61
 	FormsModule,
 	BrowserAnimationsModule,	// Lec 18
 	MatInputModule,	// Lec 19
@@ -47,6 +50,7 @@ import { PostListComponent } from './posts/post-list/post-list.component'; // Le
 	MatToolbarModule, // lec 20
 	MatExpansionModule, // Lec 21
 	HttpClientModule, // Lec 38
+	MatProgressSpinnerModule, // Lec 69
 	// BrowserAnimationsModule,
 	// MaterialModule,
 	// AppRouters,
