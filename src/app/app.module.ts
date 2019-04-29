@@ -8,6 +8,7 @@ import { MatInputModule,
 	MatButtonModule,
 	MatToolbarModule,
 	MatExpansionModule,
+	MatProgressSpinnerModule,	// Lec 69
 	} from '@angular/material'; // Lec 19
 // import {MaterialModule} from './material.module';
 // import {FlexLayoutModule} from '@angular/flex-layout';
@@ -49,6 +50,7 @@ import { AppRoutingModule } from './app-routing.module'; // Lec 61
 	MatToolbarModule, // lec 20
 	MatExpansionModule, // Lec 21
 	HttpClientModule, // Lec 38
+	MatProgressSpinnerModule, // Lec 69
 	// BrowserAnimationsModule,
 	// MaterialModule,
 	// AppRouters,
