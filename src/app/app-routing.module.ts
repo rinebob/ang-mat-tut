@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 
-const routes: Routes = [
+// const routes: Routes = [
+const routes = [
 	{	path: '', component: PostListComponent }, // root page ie localhost:4200
 	{	path: 'create', component: PostCreateComponent }, // note no / before create
 	{	path: 'edit/:postId', component: PostCreateComponent }, // 
