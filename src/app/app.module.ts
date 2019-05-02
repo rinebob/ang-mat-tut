@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Lec 15
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';	// Lec 18
+// import { FormsModule } from '@angular/forms';	// Lec 18 replaced Lec 73 with reactive forms approach
+import { ReactiveFormsModule } from '@angular/forms';	// Lec 73
 import { HttpClientModule } from '@angular/common/http'; // Lec 38
 import { MatInputModule,
 	MatCardModule,
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './app-routing.module'; // Lec 61
 	imports: [
 	BrowserModule,
 	AppRoutingModule,	// Lec 61
-	FormsModule,
+	// FormsModule,	// Lec 18 replaced Lec 73
+	ReactiveFormsModule,	// Lec 73
 	BrowserAnimationsModule,	// Lec 18
 	MatInputModule,	// Lec 19
 	MatCardModule, // lec 19
