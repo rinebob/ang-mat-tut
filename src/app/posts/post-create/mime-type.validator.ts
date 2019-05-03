@@ -1,7 +1,6 @@
 import { AbstractControl } from '@angular/forms';
 import { Observable, Observer, of } from 'rxjs';
 
-
 export const mimeType = (control: AbstractControl): Promise<{[key: string]: any}> | Observable<{[key: string]: any}>  => {
 	if (typeof(control.value) === 'string') {
 		return of(null);
@@ -11,17 +10,15 @@ export const mimeType = (control: AbstractControl): Promise<{[key: string]: any}
 	const frObs = Observable.create((observer: Observer<{[key: string]: any }>) => {
 		fileReader.addEventListener('loadend', () => {
 			const arr = new Uint8Array(fileReader.result).subarray(0, 4);
-			console.log('300 mime-type.v.ts arr = ', arr);
 			let header = '';
 			let isValid = false;
 			for (let i = 0; i < arr.length; i++) {
 				header += arr[i].toString(16);
 			}
-			console.log('301 mime-type.v.ts header = ', header);
 			switch (header) {
 				case '89504e47':
-				isValid = true;
-				break;
+					isValid = true;
+					break;
 				case 'ffd8ffe0':
 				case 'ffd8ffe1':
 				case 'ffd8ffe2':
@@ -30,7 +27,7 @@ export const mimeType = (control: AbstractControl): Promise<{[key: string]: any}
 					isValid = true;
 					break;
 				default:
-				isValid = false;
+					isValid = false;
 				break;
 			}
 			if (isValid) {

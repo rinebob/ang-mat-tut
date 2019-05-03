@@ -85,7 +85,7 @@ export class PostsService {
 		.put('http://localhost:3000/api/posts/' + id, postData)
 		.subscribe (response => {
 			const updatedPosts = [...this.posts];
-			const oldPostIndex = updatedPosts.findIndex(p => p.id === post.id);
+			const oldPostIndex = updatedPosts.findIndex(p => p.id === id);
 			const post: Post = {
 				id: id,
 				title: title,
@@ -100,7 +100,6 @@ export class PostsService {
 	}
 
 	deletePost(postId: string) {
-		console.log('300 posts.s.ts deletePost. postId = ', postId);
 		this.http.delete('http://localhost:3000/api/posts/' + postId )
 		.subscribe(() => {
 			// console.log('300 posts.s.ts Post is like so deleted dude...');

@@ -40,15 +40,11 @@ export class PostCreateComponent implements OnInit {
 			})
 		});
 		this.route.paramMap.subscribe((paramMap: ParamMap) => {
-			// console.log('100 post-create.c.ts ngOnInit this.route.  paramMap = ', paramMap);
 			if (paramMap.has('postId')) {
-				// console.log('101 post-create.c.ts ngOnInit this.route.  in edit mode block');
 				this.mode = 'edit';
 				this.postId = paramMap.get('postId');
 				this.isLoading = true;
-				// console.log('104 post-create.c.ts ngOnInit this.route.  mode = ', this.mode);
 				this.postsService.getPost(this.postId).subscribe(postData => {
-					// console.log('105 post-create.c.ts ngOnInit this.route.  postData = ', postData);
 					this.isLoading = false;
 					this.post = {
 						id: postData._id,
@@ -63,7 +59,6 @@ export class PostCreateComponent implements OnInit {
 					});
 				});
 			} else {
-				// console.log('108 post-create.c.ts ngOnInit this.route.  in create mode block');
 				this.mode = 'create';
 				this.postId = null;
 			}
