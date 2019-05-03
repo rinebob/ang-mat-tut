@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { PostsService } from '../posts.service';
 import { Post } from '../post.model';
+import { mimeType } from './mime-type.validator';
 
 @Component({
 
@@ -33,31 +34,36 @@ export class PostCreateComponent implements OnInit {
 			content: new FormControl(null, {
 				validators: [Validators.required]
 			}),
-			image: new FormControl(null, {validators: [Validators.required]})
+			image: new FormControl(null, {
+				validators: [Validators.required],
+				asyncValidators: [mimeType]
+			})
 		});
 		this.route.paramMap.subscribe((paramMap: ParamMap) => {
-			console.log('100 post-create.c.ts ngOnInit this.route.  paramMap = ', paramMap);
+			// console.log('100 post-create.c.ts ngOnInit this.route.  paramMap = ', paramMap);
 			if (paramMap.has('postId')) {
-				console.log('101 post-create.c.ts ngOnInit this.route.  in edit mode block');
+				// console.log('101 post-create.c.ts ngOnInit this.route.  in edit mode block');
 				this.mode = 'edit';
 				this.postId = paramMap.get('postId');
 				this.isLoading = true;
-				console.log('104 post-create.c.ts ngOnInit this.route.  mode = ', this.mode);
+				// console.log('104 post-create.c.ts ngOnInit this.route.  mode = ', this.mode);
 				this.postsService.getPost(this.postId).subscribe(postData => {
-					console.log('105 post-create.c.ts ngOnInit this.route.  postData = ', postData);
+					// console.log('105 post-create.c.ts ngOnInit this.route.  postData = ', postData);
 					this.isLoading = false;
 					this.post = {
 						id: postData._id,
 						title: postData.title,
-						content: postData.content
+						content: postData.content,
+						imagePath: postData.imagePath
 					};
 					this.form.setValue({
 						title: this.post.title,
-						content: this.post.content
+						content: this.post.content,
+						image: this.post.imagePath
 					});
 				});
 			} else {
-				console.log('108 post-create.c.ts ngOnInit this.route.  in create mode block');
+				// console.log('108 post-create.c.ts ngOnInit this.route.  in create mode block');
 				this.mode = 'create';
 				this.postId = null;
 			}
@@ -82,9 +88,17 @@ export class PostCreateComponent implements OnInit {
 		}
 		this.isLoading = true;
 		if (this.mode === 'create') {
-			this.postsService.addPost(this.form.value.title, this.form.value.content);
+			this.postsService.addPost(
+				this.form.value.title,
+				this.form.value.content,
+				this.form.value.image);
 		} else {
-			this.postsService.updatePost( this.postId, this.form.value.title, this.form.value.content );
+			this.postsService.updatePost(
+				this.postId,
+				this.form.value.title,
+				this.form.value.content,
+				this.form.value.image
+			);
 		}
 
 		this.form.reset();
