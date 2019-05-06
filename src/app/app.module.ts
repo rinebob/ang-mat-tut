@@ -10,24 +10,16 @@ import { MatInputModule,
 	MatToolbarModule,
 	MatExpansionModule,
 	MatProgressSpinnerModule,	// Lec 69
+	MatPaginatorModule,	// Lec 87
 	} from '@angular/material'; // Lec 19
-// import {MaterialModule} from './material.module';
-// import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {PostsService} from './posts/posts.service';
-
-// import {AppRouters} from './app.routes';
-// import {DataService} from './data/data.service';
-// import {AuthService} from './auth.service';
 
 import { AppComponent } from './app.component';	// Lec 15
 import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { HeaderComponent } from './header/header.component'; // Lec 20
 import { PostListComponent } from './posts/post-list/post-list.component'; // Lec 21
 import { AppRoutingModule } from './app-routing.module'; // Lec 61
-// import { WelcomeComponent } from './welcome/welcome.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
-// import { PostDialogComponent } from './post-dialog/post-dialog.component';
 
 @NgModule({
 
@@ -36,9 +28,6 @@ import { AppRoutingModule } from './app-routing.module'; // Lec 61
 		PostCreateComponent,	// Lec 15
 		HeaderComponent, // Lec 20
 		PostListComponent, // Lec 21
-		// WelcomeComponent,
-		// DashboardComponent,
-		// PostDialogComponent
 	],
 	imports: [
 	BrowserModule,
@@ -53,19 +42,14 @@ import { AppRoutingModule } from './app-routing.module'; // Lec 61
 	MatExpansionModule, // Lec 21
 	HttpClientModule, // Lec 38
 	MatProgressSpinnerModule, // Lec 69
-	// BrowserAnimationsModule,
-	// MaterialModule,
-	// AppRouters,
-	// FlexLayoutModule,
+	MatPaginatorModule, 		// Lec 87
 	],
 
 	providers: [PostsService],
 
 	entryComponents: [
-		// PostDialogComponent
 	],
 
-	// providers: [ DataService, AuthService ],
 	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
